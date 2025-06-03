@@ -1,0 +1,61 @@
+﻿@model List<ResultBookDto>
+
+@*
+    Featured Books
+*@
+
+<section id="featured-books" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="section-header align-center">
+                    <div class="title">
+                        <span>Seçkin kitaplar</span>
+                    </div>
+                    <h2 class="section-title">Öne Çıkan Kitaplar</h2>
+                </div>
+
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="col-md-3">
+                                <div class="product-item">
+                                    <figure class="product-style">
+                                        <img src="@item.ImageUrl" alt="Books" class="product-item">
+                                        <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                            Sepete Ekl
+                                        </button>
+                                    </figure>
+                                    <figcaption>
+                                        <h3>@item.Title</h3>
+                                        <span>@item.Author</span>
+                                        <div class="item-price">@item.Price</div>
+                                    </figcaption>
+                                </div>
+                            </div>
+                        }
+
+                    </div><!--ft-books-slider-->
+                </div><!--grid-->
+
+
+            </div><!--inner-content-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="btn-wrap align-right">
+                    <a href="#" class="btn-accent-arrow">
+                        Tüm kitapları gör <i class="icon icon-ns-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

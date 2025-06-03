@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Booksaw.Business\Booksaw.Business.csproj" />
+    <ProjectReference Include="..\Booksaw.Dto\Booksaw.Dto.csproj" />
   </ItemGroup>
 
 </Project>

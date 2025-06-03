@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Booksaw.Entity
+namespace Booksaw.Dto.BookDtos
 {
-    public class Book
+    public class ResultBookDto
     {
         public int BookId { get; set; }
         public string Title { get; set; }
@@ -14,7 +14,5 @@ namespace Booksaw.Entity
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
-
     }
 }

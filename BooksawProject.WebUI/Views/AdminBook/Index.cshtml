@@ -1,0 +1,69 @@
+﻿@using X.PagedList
+@model IPagedList<ResultBookDto>
+
+@* @model List<ResultBookDto>
+ *@
+@{
+    ViewData["Title"] = "Kitaplar";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+
+<h3>Kitaplar</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Yazar</th>
+        <th>Açıklama</th>
+        <th>Fiyatı</th>
+        <th>Kategorisi</th>
+        <th>Resim</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Author</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>@item.CategoryId</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" alt="Book Image" style="width: 100px; height: auto;" />
+                }
+                else
+                {
+                    <span>No Image</span>
+                }
+            </td>
+            <td>
+                <a asp-action="DeleteBook" asp-route-id="@item.BookId" class="btn btn-danger">Sil</a>
+                <a asp-action="UpdateBook" asp-route-id="@item.BookId" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div style="text-align:center; margin-top: 20px;">
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        if (i == Model.PageNumber)
+        {
+            <span style="margin: 0 5px; padding: 5px 10px; background-color: #007bff; color: white; border-radius: 5px;">@i</span>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", new { page = i })" style="margin: 0 5px; padding: 5px 10px; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 5px;">@i</a>
+        }
+    }
+</div>
+
+<a asp-action="CreateBook" asp-controller="AdminBook" class="btn btn-primary">Yeni Kitap Ekle</a>
+
+

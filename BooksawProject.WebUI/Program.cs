@@ -1,9 +1,13 @@
+using Booksaw.Business.Abstract;
+using Booksaw.Business.Concrete;
 using Booksaw.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IImageService, ImageService>();
+
 builder.Services.AddHttpClient();
 
 builder.Services.AddControllersWithViews();

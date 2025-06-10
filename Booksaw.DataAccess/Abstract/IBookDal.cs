@@ -10,5 +10,6 @@ namespace Booksaw.DataAccess.Abstract
     public interface IBookDal : IGenericDal<Book>
     {
         public List<Book> GetBooksByCategoryId(int categoryId);
+        public Book GetRandomBook();
     }
 }

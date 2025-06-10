@@ -16,5 +16,6 @@ namespace Booksaw.Business.Abstract
         public ResultBookDto GetBookById(int bookId);
         public List<ResultBookDto> GetAllBooks();
         public List<ResultBookDto> GetBooksByCategoryId(int categoryId);
+        public ResultBookDto GetRandomBook();
     }
 }

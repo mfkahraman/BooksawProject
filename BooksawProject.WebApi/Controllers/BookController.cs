@@ -43,6 +43,17 @@ namespace BooksawProject.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet("GetRandomBook")]
+        public IActionResult GetRandomBook()
+        {
+            var randomBook = bookService.GetRandomBook();
+            if (randomBook == null)
+            {
+                return NotFound("No books found for this category.");
+            }
+            return Ok(randomBook);
+        }
+
         [HttpPost("AddBook")]
         public IActionResult AddBook(CreateBookDto dto)
         {

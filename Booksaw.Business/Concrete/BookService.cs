@@ -42,6 +42,12 @@ namespace Booksaw.Business.Concrete
             return mapper.Map<List<ResultBookDto>>(books);
         }
 
+        public ResultBookDto GetRandomBook()
+        {
+            var book = bookDal.GetRandomBook();
+            return mapper.Map<ResultBookDto>(book);
+        }
+
         public void UpdateBook(UpdateBookDto dto)
         {
             var book = mapper.Map<Book>(dto);

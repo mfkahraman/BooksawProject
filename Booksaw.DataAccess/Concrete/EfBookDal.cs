@@ -23,5 +23,21 @@ namespace Booksaw.DataAccess.Concrete
             }
             return values;
         }
+
+        public Book GetRandomBook()
+        {
+            int booksCount = context.Books.Count();
+            if (booksCount == 0)
+            {
+                throw new InvalidOperationException("No books available to select a random book.");
+            }
+            var randomIndex = new Random().Next(0, booksCount);
+            var randomBook = context.Books.Skip(randomIndex).FirstOrDefault();
+            if (randomBook == null)
+            {
+                throw new InvalidOperationException("Failed to retrieve a random book.");
+            }
+            return randomBook;
+        }
     }
 }

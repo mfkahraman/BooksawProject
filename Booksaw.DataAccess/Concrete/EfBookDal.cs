@@ -2,6 +2,7 @@
 using Booksaw.DataAccess.Context;
 using Booksaw.DataAccess.Repositories;
 using Booksaw.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Booksaw.DataAccess.Concrete
         public List<Book> GetBooksByCategoryId(int categoryId)
         {
             var values = context.Books
+                .Include(b => b.Category) // Ensure Category is included for better performance and data integrity
                 .Where(b => b.CategoryId == categoryId)
                 .ToList();
             if (values == null || !values.Any())
@@ -32,7 +34,7 @@ namespace Booksaw.DataAccess.Concrete
                 throw new InvalidOperationException("No books available to select a random book.");
             }
             var randomIndex = new Random().Next(0, booksCount);
-            var randomBook = context.Books.Skip(randomIndex).FirstOrDefault();
+            var randomBook = context.Books.Include(x=> x.Category).Skip(randomIndex).FirstOrDefault();
             if (randomBook == null)
             {
                 throw new InvalidOperationException("Failed to retrieve a random book.");

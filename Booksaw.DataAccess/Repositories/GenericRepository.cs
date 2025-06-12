@@ -1,5 +1,7 @@
 ﻿using Booksaw.DataAccess.Abstract;
 using Booksaw.DataAccess.Context;
+using Booksaw.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +34,17 @@ namespace Booksaw.DataAccess.Repositories
 
         public List<T> GetAll()
         {
-            var values = _context.Set<T>().ToList();
-            return values;
+            // Book ile ilişkili Category'yi yüklemek için Include() kullanıyoruz
+            if (typeof(T) == typeof(Book))
+            {
+                return _context.Set<Book>().Include(b => b.Category).ToList() as List<T>;
+            }
+            else
+            {
+                return _context.Set<T>().ToList();
+            }
         }
+
 
         public T GetById(int id)
         {
@@ -51,5 +61,7 @@ namespace Booksaw.DataAccess.Repositories
             _context.Set<T>().Update(entity);
             _context.SaveChanges();
         }
+
+
     }
 }

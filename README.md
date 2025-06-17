@@ -1,20 +1,24 @@
-📘 Booksaw
-Booksaw is a simple bookstore website that I built entirely by myself.
-The main goal of this project was to deepen my knowledge of API development and API consumption.
+## 📘 Booksaw
+
+**Booksaw** is a simple bookstore website that I built entirely by myself.  
+The main goal of this project was to deepen my knowledge of API development and API consumption.  
 As I actively work on integration projects in my current role, this project helped me take my technical skills even further.
 
-🔍 Features
-📚 Display books on the homepage using a custom-built Web API
-🛠️ Admin panel for managing books and categories
-🔁 API consumption using HttpClient
+## 🔍 Features
 
-⚙️ Tech Stack
-💻 ASP.NET Core MVC & Web API
-🗃️ Entity Framework Core (Code-First)
-🔁 AutoMapper
-📦 X.PagedList
-🌐 HttpClient
-🎨 HTML / CSS / Bootstrap
+- 📚 Display books on the homepage using a custom-built Web API
+- 🛠️ Admin panel for managing books and categories
+- 🔁 API consumption using `HttpClient`
+
+## ⚙️ Tech Stack
+
+- 💻 ASP.NET Core MVC & Web API
+- 🗃️ Entity Framework Core (Code-First)
+- 🔁 AutoMapper
+- 📦 X.PagedList
+- 🌐 HttpClient
+- 🎨 HTML / CSS / Bootstrap
+
 
 ![1](https://github.com/user-attachments/assets/4a90aff6-30ed-412b-8fef-084bd6afb835)
 ![2](https://github.com/user-attachments/assets/a90cf7f7-5526-428f-bc75-58690d605c2f)
